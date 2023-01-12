@@ -1,14 +1,17 @@
 package com.thatnawfal.dicoding_advanceui_modul
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
 import android.view.Window
 import android.widget.Toast
+import com.thatnawfal.dicoding_advanceui_modul.activity.DrawingActivity
 import com.thatnawfal.dicoding_advanceui_modul.customui.MyButton
 import com.thatnawfal.dicoding_advanceui_modul.customui.MyEditText
 import com.thatnawfal.dicoding_advanceui_modul.databinding.ActivityMainBinding
+import com.thatnawfal.dicoding_advanceui_modul.model.Seat
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,11 +28,18 @@ class MainActivity : AppCompatActivity() {
         with(binding){
             btnSubmit.setOnClickListener {
                 seatsView.seat?.let {
+                    choosePage(it)
                     Toast.makeText(this@MainActivity, "Kursi Anda nomor ${it.name}.", Toast.LENGTH_SHORT).show()
                 } ?: run {
                     Toast.makeText(this@MainActivity, "Silakan pilih kursi terlebih dahulu.", Toast.LENGTH_SHORT).show()
                 }
             }
+        }
+    }
+
+    private fun choosePage(it: Seat) {
+        if (it.name == "A1"){
+            startActivity(Intent(this@MainActivity, DrawingActivity::class.java))
         }
     }
 
