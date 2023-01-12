@@ -33,4 +33,18 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"/>
 
+    <com.thatnawfal.dicoding_advanceui_modul.customui.SeatsView
+        android:id="@+id/seats_view"
+        android:layout_width="wrap_content"
+        android:layout_height="0dp"
+
+        app:layout_constraintTop_toBottomOf="@id/btn_submit"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintVertical_bias="0.0"
+        tools:ignore="SpeakableTextPresentCheck"/>
+
 </androidx.constraintlayout.widget.ConstraintLayout>

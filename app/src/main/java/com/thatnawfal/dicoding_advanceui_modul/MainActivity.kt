@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
+import android.view.Window
+import android.widget.Toast
 import com.thatnawfal.dicoding_advanceui_modul.customui.MyButton
 import com.thatnawfal.dicoding_advanceui_modul.customui.MyEditText
 import com.thatnawfal.dicoding_advanceui_modul.databinding.ActivityMainBinding
@@ -17,12 +19,18 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.btnSubmit.setOnClickListener {
-            binding.btnSubmit.isEnabled = !binding.btnSubmit.isEnabled
-        }
-
         setMyButtonEnable()
         editTextChanging()
+
+        with(binding){
+            btnSubmit.setOnClickListener {
+                seatsView.seat?.let {
+                    Toast.makeText(this@MainActivity, "Kursi Anda nomor ${it.name}.", Toast.LENGTH_SHORT).show()
+                } ?: run {
+                    Toast.makeText(this@MainActivity, "Silakan pilih kursi terlebih dahulu.", Toast.LENGTH_SHORT).show()
+                }
+            }
+        }
     }
 
     private fun editTextChanging() {
