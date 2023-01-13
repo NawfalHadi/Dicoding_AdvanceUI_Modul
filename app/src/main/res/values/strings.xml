@@ -12,4 +12,6 @@
     <string name="stop_update">STOP UPDATE</string>
     <string name="random">Random: 100</string>
     <string name="generate">Generate</string>
+
+    <string name="empty_text">NO DATA</string>
 </resources>
